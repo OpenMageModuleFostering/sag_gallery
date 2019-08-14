@@ -23,6 +23,24 @@
  * @author	Navneet <navneet.kshk@gmail.com>
  */
 ?>
+<style>
+	.page-title {
+	  width: 100%;
+	  overflow: hidden;
+	  border-bottom: 1px solid #ccc;
+	  margin: 0 0 25px;
+	}
+	
+	.page-title h1 {
+	  margin: 0;
+	  font-size: 20px;
+	  color: #0a263c;
+	}
+	
+	.imageDetail{
+		text-align:center;
+	}
+</style>
 
 <?php $cnt = count($this->getImage()); ?>
 <?php if($cnt > 0 ): ?>
@@ -31,9 +49,11 @@
         <h1><?php   echo $item->getTitle(); ?></h1>
     </div>                
 	<div class="imageDetail" >
-        <img style="float:left; margin:0 10px 10px 0; border-radius: 5px; border:5px solid #a89ca1;" src="<?php echo $this->resizeImage($item->getFilename(), 267, 400, ''); ?>" alt="<?php   echo $item->getTitle(); ?>" />
-        <?php echo $item->getContent(); ?>
-	</div>  
+        <img style="margin:0 10px 10px 0; border-radius: 5px; border:5px solid #a89ca1;" src="<?php echo $this->resizeImage($item->getFilename(), 267, 400, ''); ?>" alt="<?php   echo $item->getTitle(); ?>" />
+        <br clear="all" /> 
+		<?php echo $item->getContent(); ?>
+	</div> 
+    <br clear="all" /> 
 	<?php endforeach;  ?> 
 <?php else: ?>
 	<div>There is no Images here</div>

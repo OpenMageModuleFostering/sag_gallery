@@ -23,6 +23,79 @@
  * @author	Navneet <navneet.kshk@gmail.com>
  */
 ?>
+<style>
+	.page-title {
+	  width: 100%;
+	  overflow: hidden;
+	  border-bottom: 1px solid #ccc;
+	  margin: 0 0 25px;
+	}
+	
+	.page-title h1 {
+	  margin: 0;
+	  font-size: 20px;
+	  color: #0a263c;
+	}
+	
+	.pager {
+	  font-size: 11px;
+	  background-color:#CCC;
+	  padding: 4px 8px;
+	  border-top: 1px solid #e2e2e2;
+	  text-align: center;
+	  height:20px;
+	}
+	
+	.pager .amount {
+	  float: left;
+	  margin: 0;
+	}
+	
+	.pager .limiter {
+	  float: right;
+	}
+	
+	.pager .limiter label {
+	  vertical-align: middle;
+	}
+	
+	.pager .limiter select {
+	  padding: 0;
+	  margin: 0 0 1px;
+	  vertical-align: middle;
+	}
+	
+	.pager .pages {
+	  margin: 0 140px;
+	}
+	
+	.pager .pages ol {
+	  display: inline;
+	  list-style:none;
+	}
+	
+	.pager .pages li {
+	  display: inline;
+	  margin: 0 2px;
+	}
+	
+	ul#gallery_con{
+		list-style:none;
+		margin:10px;
+	}
+	
+	ul#gallery_con li{
+		float:left;
+		width:	31%;
+		height:150px;
+		margin:0 5px;
+		text-align:center;
+	}
+	
+	ul#gallery_con li a{
+		text-decoration:none;
+	}
+</style>
 
 <div class="page-title">
     <h1><?php echo $this->__('Gallery') ?></h1>
@@ -39,32 +112,16 @@ if($cnt > 0 ):
 	<?php foreach ($collection as $item): ?>                  
 	<li>
         <a class="image_gal" href="<?php echo Mage::getUrl('gallery');?>category/?cat=<?php   echo $item->getCategoryId(); ?>">
-           <img src="<?php echo $this->resizeImage($item->getFilename(), 208, 230, ''); ?>" alt="<?php   echo $item->getTitle(); ?>" />
+           <img src="<?php echo $this->resizeImage($item->getFilename(), 142, 155, ''); ?>" alt="<?php   echo $item->getTitle(); ?>" />
         </a>
+        <br />
 		<a class="link_gal" href="<?php echo Mage::getUrl('gallery');?>category/?cat=<?php   echo $item->getCategoryId(); ?>"><?php   echo $item->getTitle(); ?></a>
 		<!--<p><?php echo $item->getContent(); ?></p>-->
 	</li>
 	<?php endforeach;  ?> 
 </ul>
+<br clear="all" />
 <?php echo $this->getPagerHtml(); ?>
 <?php else: ?>
 	<div>There is no Category here</div>
 <?php endif; ?>
-
-<?php /*?><?php $cnt = count($this->getCategory()); ?>
-<?php if($cnt > 0 ): ?>
-<ul id="gallery_con">
-	<?php foreach ($this->getCategory() as $item): ?>                  
-	<li>
-        <a class="image_gal" href="gallery/category/?cat=<?php   echo $item->getCategoryId(); ?>">
-           <img src="<?php echo $this->resizeImage($item->getFilename(), 208, 230, ''); ?>" alt="<?php   echo $item->getTitle(); ?>" />
-        </a>
-		<a class="link_gal" href="gallery/category/?cat=<?php   echo $item->getCategoryId(); ?>"><?php   echo $item->getTitle(); ?></a>
-		<!--<p><?php echo $item->getContent(); ?></p>-->
-	</li>
-	<?php endforeach;  ?> 
-</ul>
-<?php echo $this->getPagerHtml(); ?>
-<?php else: ?>
-	<div>There is no Category here</div>
-<?php endif; ?><?php */?>
