@@ -2,7 +2,30 @@
     <h1><?php $this->getCategoryById(); ?></h1>
 </div>
 
-<?php $cnt = count($this->getGallery()); ?>
+<?php
+$collection = $this->getCollection();
+$cnt = count($collection);
+if($cnt > 0 ): 
+?>
+	<?php echo $this->getPagerHtml(); ?>
+	<ul id="gallery_con">
+		<?php foreach ($collection as $item): ?>                  
+        <li>
+            <a class="image_gal" href="<?php echo Mage::getUrl('gallery');?>image/?img=<?php   echo $item->getGalleryId(); ?>">
+                <img src="<?php echo $this->resizeImage($item->getFilename(), 208, 230, ''); ?>" alt="<?php   echo $item->getTitle(); ?>" />
+            </a>
+            <a class="link_gal" href="<?php echo Mage::getUrl('gallery');?>image/?img=<?php   echo $item->getGalleryId(); ?>"><?php   echo $item->getTitle(); ?></a>
+        </li>
+        <?php endforeach;  ?> 
+    </ul>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+	<div>There is no Images here</div>
+<?php endif; ?>
+
+
+
+<?php /*?><?php $cnt = count($this->getGallery()); ?>
 <?php if($cnt > 0 ): ?>
 	<ul id="gallery_con">
 		<?php foreach ($this->getGallery() as $item): ?>                  
@@ -17,3 +40,4 @@
 <?php else: ?>
 	<div>There is no Images here</div>
 <?php endif; ?>
+<?php echo $this->getPagerHtml(); ?><?php */?>

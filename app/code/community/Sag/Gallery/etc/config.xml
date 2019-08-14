@@ -60,10 +60,18 @@
 				</all>
 				<admin>
 					<children>
-						<Sag_Gallery>
-							<title>Gallery Module</title>
-							<sort_order>10</sort_order>
-						</Sag_Gallery>
+						<system>
+							<children>
+								<config>
+									<children>
+										<saggallery translate="title">
+											<title>Sag Gallery</title>
+											<sort_order>1</sort_order>
+										</saggallery>
+									</children>
+								</config>
+							</children>
+						</system>
 					</children>
 				</admin>
 			</resources>

@@ -1,7 +1,16 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
     <default>
-    </default>
+		<reference name="top.links">
+		  <action method="addLink" translate="label title">
+			<label>Gallery</label>
+			<url>gallery</url>
+			<title>Gallery</title>
+			<prepare>true</prepare>
+			<position>2</position>
+		  </action>
+		</reference>
+	</default>
 	<gallery_index_index>
         <reference name="content">
             <block type="gallery/category" name="category" template="gallery/category.phtml" />
