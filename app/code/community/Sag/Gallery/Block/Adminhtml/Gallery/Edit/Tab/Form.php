@@ -47,7 +47,7 @@ class Sag_Gallery_Block_Adminhtml_Gallery_Edit_Tab_Form extends Mage_Adminhtml_B
 
       $fieldset->addField('filename', 'image', array(
           'label'     => Mage::helper('gallery')->__('Image'),
-          'required'  => false,
+          'required'  => true,
           'name'      => 'filename',
 	  ));
 		
